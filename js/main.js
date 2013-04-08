@@ -18,7 +18,6 @@ define(['esri/map',
     			//replace the url below with the location of a proxy on your machine. See the 'Using the proxy page' help topic 
     			//for details on setting up a proxy page.
     			esri.config.defaults.io.proxyUrl = "/proxy";
-
     			//This service is for development and testing purposes only. We recommend that you create your own geometry service for use within your applications
     			esri.config.defaults.geometryService = new esri.tasks.GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
     			
@@ -43,11 +42,12 @@ define(['esri/map',
     		},
 
     		initEditor: function(){			
-    			
-    			var editLayers = this.editableLayers(this.opLayers);
-                console.log("editLayers" + editLayers)
+    			if(this.editorWidget){
+                    return this.editorWidget;
+                }
+                else{ 
+    			var editLayers = this.editableLayers(this.opLayers);                
                 if(editLayers.length > 0){
-
                     var templateLayers = array.map(editLayers, function (layer) {                    
                         return layer.featureLayer;
                     });
@@ -79,7 +79,7 @@ define(['esri/map',
                     this.editorWidget = new esri.dijit.editing.Editor(params);
                     this.editorWidget.startup();
                     this.disablePopups();
-    				
+    				}
     					
 
                 }
@@ -97,7 +97,6 @@ define(['esri/map',
                             }
                         }
                     });
-                console.log(layerInfos);
                 return layerInfos;
             },
              enablePopups: function() {
