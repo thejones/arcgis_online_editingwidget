@@ -26,7 +26,7 @@ Simple example that consumes an ArcGIS Online web map and enables the default ed
 ## Resources
 
 * [BearPanther](http://www.bearpanther.com)
-* [twitter@esri](http://twitter.com/BearPanther)
+* [twitter@bearpanther](http://twitter.com/BearPanther)
 * [ArcGIS for JavaScript API Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
 
 ## Issues
