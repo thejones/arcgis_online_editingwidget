@@ -43,9 +43,11 @@ define(['esri/map',
     		},
 
     		initEditor: function(){			
-    			
-    			var editLayers = this.editableLayers(this.opLayers);
-                console.log("editLayers" + editLayers)
+    			if(this.editorWidget){
+                    return this.editorWidget;
+                }
+                else{
+                    var editLayers = this.editableLayers(this.opLayers);
                 if(editLayers.length > 0){
 
                     var templateLayers = array.map(editLayers, function (layer) {                    
@@ -53,7 +55,7 @@ define(['esri/map',
                     });
 
                     if(!dom.byId('editorDiv')){
-                    	var eDiv = domConstruct.create("div",{id:"editorDiv"},'templatePickerPane');        			
+                        var eDiv = domConstruct.create("div",{id:"editorDiv"},'templatePickerPane');                    
                     }
 
                     var editLayerInfo = editLayers;
@@ -79,10 +81,12 @@ define(['esri/map',
                     this.editorWidget = new esri.dijit.editing.Editor(params);
                     this.editorWidget.startup();
                     this.disablePopups();
-    				
-    					
+                    
+                        
 
                 }
+                }
+    			
     		},
     		editableLayers: function(layers){
                 var layerInfos = [];
@@ -97,7 +101,6 @@ define(['esri/map',
                             }
                         }
                     });
-                console.log(layerInfos);
                 return layerInfos;
             },
              enablePopups: function() {
