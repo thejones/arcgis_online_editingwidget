@@ -4,7 +4,7 @@ Simple example that consumes an ArcGIS Online web map and enables the default ed
 
 
 
-[View it live](http://thejones.github.com/arcgis_online_editingwidget/index.html)
+[View it live](http://bearpanther.com/arcgis_online_editingwidget/)
 
 
 

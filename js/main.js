@@ -17,7 +17,7 @@ define(['esri/map',
     			//This sample requires a proxy page to handle communications with the ArcGIS Server services. You will need to  
     			//replace the url below with the location of a proxy on your machine. See the 'Using the proxy page' help topic 
     			//for details on setting up a proxy page.
-    			esri.config.defaults.io.proxyUrl = "/proxy/proxy.php";
+    			esri.config.defaults.io.proxyUrl = "proxy/proxy.php";
 
     			//This service is for development and testing purposes only. We recommend that you create your own geometry service for use within your applications
     			esri.config.defaults.geometryService = new esri.tasks.GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
